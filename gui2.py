@@ -272,7 +272,7 @@ def main():
     #boton descargar
     link1 = Label(miframe, text="Descargar aquí", fg="blue", cursor="hand2")
     link1.grid(row=1,column=0, columnspan="2", pady="5")
-    link1.bind("<Button-1>", lambda e: callback("https://github.com/mlvillarroya/moodle-questions/raw/master/excel_moodle.xlsx"))
+    link1.bind("<Button-1>", lambda e: callback("https://github.com/mlvillarroya/moodle-questions/raw/main/excel_moodle.xlsx"))
 
     #---SEGUNDA PARTE: SUBIR EL ARCHIVO RELLENO---#
     label_link = Label(miframe, text="SEGUNDA PARTE: SUBIR EL ARCHIVO RELLENO:")
