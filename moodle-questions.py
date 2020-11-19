@@ -8,16 +8,6 @@ from tkinter.filedialog import askopenfilename
 from tkinter.messagebox import showerror
 import webbrowser
 
-# def load_file(cuadro):
-#     fname = askopenfilename(filetypes=(("Excel file", "*.xlsx"),))
-#     if fname:
-#         try:
-#             ruta_archivo.config(text=fname)
-#             cuadro.insert(END, "Archivo cargado correctamente\n")
-#         except:  # <- naked except is a bad idea
-#             showerror("Open Source File", "Failed tofruski read file\n'%s'" % fname)
-#         return
-
 def generar(archivo, cuadro_texto,porcentaje):
     cuadro_texto.insert(END,"Procedemos a abrir el archivo\n")
     try:
@@ -180,8 +170,10 @@ def generar(archivo, cuadro_texto,porcentaje):
             # En cada fila, vamos leyendo las diferentes celdas
             celda=[]
             #memorizamos toda la fila
-            for column in range(1, 7):
+            for column in range(1,5):
                 celda.append((sheet.cell(row,column).value))
+            if (celda[3]):
+                resultFile.write('$CATEGORY: $course$/' + tema + '/' + celda[3] + '\n\n')
             if (celda[0]):
                 #Si hay retroacción, la memorizamos
                 if (celda[2]): retroaccion='####' + str(celda[2])
@@ -220,8 +212,10 @@ def generar(archivo, cuadro_texto,porcentaje):
             # En cada fila, vamos leyendo las diferentes celdas
             celda=[]
             #memorizamos toda la fila
-            for column in range(1, 13):
+            for column in range(1, 14):
                 celda.append((sheet.cell(row,column).value))
+            if (celda[12]):
+                resultFile.write('$CATEGORY: $course$/' + tema + '/' + celda[12] + '\n\n')
             if (celda[0]):
                 #Si hay retroacción, la memorizamos
                 if (celda[11]): retroaccion=' ####' + str(celda[11])+'\n'
